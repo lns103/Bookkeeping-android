@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="navbar_item_background">#313F45</color>
+    <color name="float_button_background">#385461</color>
+
+    <color name="fill_background_disable">#414649</color>
+    <color name="fill_background">#4D5153</color>
+
+    <color name="text_red">#F6B5B5</color>
+    <color name="text_green">#AFE1BD</color>
+</resources>

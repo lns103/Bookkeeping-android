@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">青柠账本</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit">修改</string>
+    <string name="collect">收藏</string>
+    <string name="delete">删除</string>
+    <string name="save">保存</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="Account">账号</string>
+    <string name="password">密码</string>
+    <string name="password_check">确认密码</string>
+    <string name="edit_password">修改密码</string>
+    <string name="original_password">原密码</string>
+    <string name="new_password">新密码</string>
+    <string name="ok">确认</string>
+    <string name="cloudSync">云同步</string>
+    <string name="user_id_limit">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLIMOPQRSTUVWXYZ_</string>
+</resources>

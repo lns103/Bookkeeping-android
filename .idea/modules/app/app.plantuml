@@ -1,0 +1,166 @@
+@startuml
+
+title __BOOKKEEPING.APP's Class Diagram__\n
+
+  namespace xyz.lns103.bookkeeping {
+    class xyz.lns103.bookkeeping.BuildConfig {
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    class xyz.lns103.bookkeeping.CloudSync {
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    class xyz.lns103.bookkeeping.NetworkTool {
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace activity {
+      class xyz.lns103.bookkeeping.activity.AddItemActivity {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace activity {
+      class xyz.lns103.bookkeeping.activity.BaseActivity {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace activity {
+      class xyz.lns103.bookkeeping.activity.EditPasswordActivity {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace activity {
+      class xyz.lns103.bookkeeping.activity.LoginActivity {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace activity {
+      class xyz.lns103.bookkeeping.activity.MainActivity {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace adapter {
+      class xyz.lns103.bookkeeping.adapter.ItemListAdapter {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace adapter {
+      class xyz.lns103.bookkeeping.adapter.ViewPagerAdapter {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace bean {
+      class xyz.lns103.bookkeeping.bean.Bill {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace fragment {
+      class xyz.lns103.bookkeeping.fragment.BlankFragment {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace fragment {
+      class xyz.lns103.bookkeeping.fragment.FilterFragment {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace fragment {
+      class xyz.lns103.bookkeeping.fragment.ItemListFragment {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace fragment {
+      class xyz.lns103.bookkeeping.fragment.SettingFragment {
+      }
+    }
+  }
+  
+
+  namespace xyz.lns103.bookkeeping {
+    namespace fragment {
+      class xyz.lns103.bookkeeping.fragment.StatisticsFragment {
+      }
+    }
+  }
+  
+
+  xyz.lns103.bookkeeping.activity.AddItemActivity -up-|> xyz.lns103.bookkeeping.activity.BaseActivity
+  xyz.lns103.bookkeeping.activity.AddItemActivity o-- xyz.lns103.bookkeeping.bean.Bill : bill
+  xyz.lns103.bookkeeping.activity.AddItemActivity o-- xyz.lns103.bookkeeping.databinding.ActivityAddItemBinding : binding
+  xyz.lns103.bookkeeping.activity.BaseActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  xyz.lns103.bookkeeping.activity.EditPasswordActivity -up-|> xyz.lns103.bookkeeping.activity.BaseActivity
+  xyz.lns103.bookkeeping.activity.EditPasswordActivity o-- xyz.lns103.bookkeeping.databinding.ActivityEditPasswordBinding : binding
+  xyz.lns103.bookkeeping.activity.LoginActivity -up-|> xyz.lns103.bookkeeping.activity.BaseActivity
+  xyz.lns103.bookkeeping.activity.LoginActivity o-- xyz.lns103.bookkeeping.databinding.ActivityLoginBinding : binding
+  xyz.lns103.bookkeeping.activity.MainActivity -up-|> xyz.lns103.bookkeeping.activity.BaseActivity
+  xyz.lns103.bookkeeping.activity.MainActivity o-- xyz.lns103.bookkeeping.fragment.FilterFragment : filterFragment
+  xyz.lns103.bookkeeping.activity.MainActivity o-- xyz.lns103.bookkeeping.fragment.ItemListFragment : itemListFragment
+  xyz.lns103.bookkeeping.activity.MainActivity o-- xyz.lns103.bookkeeping.fragment.StatisticsFragment : statisticsFragment
+  xyz.lns103.bookkeeping.activity.MainActivity o-- xyz.lns103.bookkeeping.databinding.ActivityMainBinding : binding
+  xyz.lns103.bookkeeping.activity.MainActivity o-- xyz.lns103.bookkeeping.CloudSync : cloudSync
+  xyz.lns103.bookkeeping.adapter.ItemListAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  xyz.lns103.bookkeeping.adapter.ViewPagerAdapter -up-|> androidx.viewpager2.adapter.FragmentStateAdapter
+  xyz.lns103.bookkeeping.bean.Bill .up.|> java.io.Serializable
+  xyz.lns103.bookkeeping.bean.Bill -up-|> org.litepal.crud.LitePalSupport
+  xyz.lns103.bookkeeping.fragment.BlankFragment -up-|> androidx.fragment.app.Fragment
+  xyz.lns103.bookkeeping.fragment.FilterFragment -up-|> androidx.fragment.app.Fragment
+  xyz.lns103.bookkeeping.fragment.FilterFragment o-- xyz.lns103.bookkeeping.databinding.FragmentFilterBinding : binding
+  xyz.lns103.bookkeeping.fragment.FilterFragment o-- xyz.lns103.bookkeeping.adapter.ItemListAdapter : itemListAdapter
+  xyz.lns103.bookkeeping.fragment.ItemListFragment -up-|> androidx.fragment.app.Fragment
+  xyz.lns103.bookkeeping.fragment.ItemListFragment o-- xyz.lns103.bookkeeping.databinding.FragmentItemListBinding : binding
+  xyz.lns103.bookkeeping.fragment.ItemListFragment o-- xyz.lns103.bookkeeping.CloudSync : cloudSync
+  xyz.lns103.bookkeeping.fragment.ItemListFragment o-- xyz.lns103.bookkeeping.adapter.ItemListAdapter : itemListAdapter
+  xyz.lns103.bookkeeping.fragment.SettingFragment -up-|> androidx.fragment.app.Fragment
+  xyz.lns103.bookkeeping.fragment.SettingFragment o-- xyz.lns103.bookkeeping.databinding.FragmentSettingBinding : binding
+  xyz.lns103.bookkeeping.fragment.StatisticsFragment -up-|> androidx.fragment.app.Fragment
+  xyz.lns103.bookkeeping.fragment.StatisticsFragment o-- xyz.lns103.bookkeeping.databinding.FragmentStatisticsBinding : binding
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

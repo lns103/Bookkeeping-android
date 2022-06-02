@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_item_1"
+        android:icon="@drawable/ic_home_checkable"
+        android:title="主页" />
+
+    <item
+        android:id="@+id/nav_item_2"
+        android:icon="@drawable/ic_filter_checkable"
+        android:title="筛选" />
+
+    <item
+        android:id="@+id/nav_item_3"
+        android:icon="@drawable/ic_assignment_checkable"
+        android:title="统计" />
+
+    <item
+        android:id="@+id/nav_item_4"
+        android:icon="@drawable/ic_settings_checkable"
+        android:title="设置" />
+</menu>

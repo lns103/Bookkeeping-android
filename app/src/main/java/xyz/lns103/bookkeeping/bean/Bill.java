@@ -20,12 +20,12 @@ public class Bill extends LitePalSupport implements Serializable {
     2.need to update
     3.need to delete
      */
+    private long id;
     private double charge;
     private Date date;
     private Date editDate;
     private String type;
     private String note;
-    private long id;
     private int state;
     private Date createDate;
     private Boolean fullSyncing = false;

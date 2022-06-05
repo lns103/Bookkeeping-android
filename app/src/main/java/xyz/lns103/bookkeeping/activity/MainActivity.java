@@ -65,7 +65,8 @@ public class MainActivity extends BaseActivity {
         setOnBackCloudSyncListener();
         sharedPreferences =  getSharedPreferences("login_information",MODE_PRIVATE);
         editor=sharedPreferences.edit();
-        checkSync();
+        //checkSync();
+        syncAll();
         initFragment();
         initViewPager();
         binding.appBarTransparentBackground.bringToFront();

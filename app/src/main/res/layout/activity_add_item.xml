@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:edgeToEdge="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     tools:context=".activity.AddItemActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -25,123 +27,145 @@
             app:menu="@menu/add_item_appbar_menu"/>
 
     </com.google.android.material.appbar.AppBarLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingHorizontal="10dp">
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/history_view"
-        android:visibility="gone"
-        android:layout_gravity="end">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/history_time"
-            android:text="上次修改时间："/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/history_icon"
-            android:id="@+id/history_time"/>
-        <ImageView
-            android:id="@+id/history_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_history_24"/>
-    </RelativeLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="金额"
-        app:boxBackgroundColor="#00000000"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox">
-        <com.google.android.material.textfield.TextInputEditText
+        android:orientation="vertical"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingHorizontal="10dp">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:textSize="50sp"
             android:layout_height="wrap_content"
-            android:id="@+id/charge"
-            android:inputType="numberDecimal|numberSigned"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="horizontal"
+            android:id="@+id/history_view"
+            android:visibility="gone"
+            android:layout_gravity="end">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/history_time"
+                android:text="上次修改时间："/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/history_icon"
+                android:id="@+id/history_time"/>
+            <ImageView
+                android:id="@+id/history_icon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_history_24"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/symbol"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:background="#00000000"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:text="-"
+                android:textSize="60sp"
+                android:clickable="true"
+                android:textColor="@color/text_red"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:hint="金额"
+                app:boxBackgroundColor="#00000000"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:textSize="50sp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/charge"
+                    android:inputType="numberDecimal"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/date_time_layout"
+                android:layout_alignParentBottom="true"
+                android:hint="类型"
+                app:boxBackgroundColor="#00000000"
+                style="@style/Widget.Material3.TextInputLayout.FilledBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/type"
+                    android:inputType="text"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:id="@+id/date_time_layout"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="日期:"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        android:id="@+id/date" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="4"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="时间:"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30sp"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        android:id="@+id/time" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/date_time_layout"
-            android:layout_alignParentBottom="true"
-            android:hint="类型"
-            app:boxBackgroundColor="#00000000"
-            style="@style/Widget.Material3.TextInputLayout.FilledBox">
+            android:hint="备注">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/type"
-                android:inputType="text"/>
+                android:id="@+id/note"
+                android:gravity="top"
+                android:minLines="3"
+                android:inputType="textMultiLine"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:id="@+id/date_time_layout"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_weight="5"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="日期:"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                    android:id="@+id/date" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_weight="4"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="时间:"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="30sp"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                    android:id="@+id/time" />
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="备注">
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/note"
-            android:gravity="top"
-            android:minLines="3"
-            android:inputType="textMultiLine"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
 
     </LinearLayout>
 </LinearLayout>

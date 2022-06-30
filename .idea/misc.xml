@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable-v24/add-24px.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable-v24/add-48px.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable-v24/ic_add_24.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable-v24/ic_save_24.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable-v24/remove-48px.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable/remove-48px.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/drawable/splash_anim_vector.xml" value="0.364" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/layout/activity_add_item.xml" value="0.39947916666666666" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res/layout/activity_main.xml" value="0.39947916666666666" />
+        <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping-android/app/src/main/res_navicon/drawable-v24/ic_settings_checkable.xml" value="0.364" />
         <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping/app/src/main/res/drawable-v24/ic_account_24.xml" value="0.1205" />
         <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping/app/src/main/res/drawable-v24/ic_account_circle-48px.xml" value="0.1685" />
         <entry key="..\:/Code/AndroidStudioProjects/Bookkeeping/app/src/main/res/drawable-v24/ic_account_circle_48.xml" value="0.1205" />

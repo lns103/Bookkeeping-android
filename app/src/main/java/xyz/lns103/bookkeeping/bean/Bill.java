@@ -126,6 +126,16 @@ public class Bill extends LitePalSupport implements Serializable {
         else return "+" + charge;
     }
 
+    public String getChargeStringUnsigned(){
+        double tempCharge = Math.abs(charge);
+        String charge = String.format("%.2f",tempCharge);
+        return charge;
+    }
+
+    public boolean isChargeNegative(){
+        return getCharge()<0;
+    }
+
     public void setCharge(double charge) {
         this.charge = charge;
     }

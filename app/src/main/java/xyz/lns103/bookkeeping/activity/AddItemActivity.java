@@ -37,6 +37,7 @@ public class AddItemActivity extends BaseActivity {
     private int position;
     private Calendar date;
     private Date createDate;
+    private boolean isChargeNegative = true;
     private long id;
     private View view;
 
@@ -50,7 +51,8 @@ public class AddItemActivity extends BaseActivity {
         date = Calendar.getInstance();
         if(position!=-1){
             bill = (Bill)getIntent().getSerializableExtra("bill");
-            binding.charge.setText(bill.getChargeString());
+            isChargeNegative = bill.isChargeNegative();
+            binding.charge.setText(bill.getChargeStringUnsigned());
             binding.type.setText(bill.getType());
             binding.note.setText(bill.getNote());
             date = bill.getDateCalendar();
@@ -60,6 +62,7 @@ public class AddItemActivity extends BaseActivity {
             binding.historyView.setVisibility(View.VISIBLE);
             binding.historyTime.setText(bill.getEditDataString());
         }
+        freshSymbol();
         refreshTime();
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -69,6 +72,14 @@ public class AddItemActivity extends BaseActivity {
             }
         });
 
+        binding.symbol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isChargeNegative) isChargeNegative = false;
+                else isChargeNegative = true;
+                freshSymbol();
+            }
+        });
 
         binding.date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +107,18 @@ public class AddItemActivity extends BaseActivity {
         });
     }
 
+    private void freshSymbol() {
+        if(isChargeNegative) {
+            binding.symbol.setText("-");
+            binding.symbol.setTextColor(this.getColor(R.color.text_green));
+            binding.charge.setTextColor(this.getColor(R.color.text_green));
+        } else {
+            binding.symbol.setText("+");
+            binding.symbol.setTextColor(this.getColor(R.color.text_red));
+            binding.charge.setTextColor(this.getColor(R.color.text_red));
+        }
+    }
+
 
     private void returnData(){
         InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -105,6 +128,7 @@ public class AddItemActivity extends BaseActivity {
             return;
         }
         double charge = Double.parseDouble(String.valueOf(binding.charge.getText()));
+        if(isChargeNegative) charge = 0 - charge;
         //Calendar date = new Calendar.g;//需要改进
         String type = String.valueOf(binding.type.getText());
         String note = String.valueOf(binding.note.getText());
@@ -152,7 +176,7 @@ public class AddItemActivity extends BaseActivity {
         binding.time.setText(timeFormat.format(date));
     }
 
-    private DatePickerDialog.OnDateSetListener DatePickerListener = new DatePickerDialog.OnDateSetListener() {
+    private final DatePickerDialog.OnDateSetListener DatePickerListener = new DatePickerDialog.OnDateSetListener() {
 
         @Override
         public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -161,7 +185,7 @@ public class AddItemActivity extends BaseActivity {
         }
     };
 
-    private TimePickerDialog.OnTimeSetListener TimePickerListener = new TimePickerDialog.OnTimeSetListener() {
+    private final TimePickerDialog.OnTimeSetListener TimePickerListener = new TimePickerDialog.OnTimeSetListener() {
         @Override
         public void onTimeSet(TimePicker timePicker, int i, int i1) {
             date.set(date.get(Calendar.YEAR),
@@ -189,6 +213,5 @@ public class AddItemActivity extends BaseActivity {
         //返回true代表普通菜单显示
         return true;
     }
-
 
 }

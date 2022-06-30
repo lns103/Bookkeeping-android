@@ -261,6 +261,7 @@ public class ItemListFragment extends Fragment {
                         itemListAdapter.edit(bill,position);
                     }
 
+                    refreshListListener.onBack();
                 }
             });
 
@@ -272,18 +273,9 @@ public class ItemListFragment extends Fragment {
                     Bill bill = (Bill)data.getSerializableExtra("bill");
                     addBill(bill);
                 }
-            });
 
-    public boolean isLandscape(){
-        Configuration mConfiguration;
-        mConfiguration = getActivity().getResources().getConfiguration();
-        int ori = mConfiguration.orientation;
-        if (ori == Configuration.ORIENTATION_LANDSCAPE) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+                refreshListListener.onBack();
+            });
 
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
@@ -298,5 +290,15 @@ public class ItemListFragment extends Fragment {
 
     public static void setGetItemListFragmentListener(GetItemListFragmentListener listener){
         getItemListFragmentListener = listener;
+    }
+
+    private static RefreshListListener refreshListListener;
+
+    public interface RefreshListListener{
+        void onBack();
+    }
+
+    public static void setRefreshListListener(RefreshListListener listener){
+        refreshListListener = listener;
     }
 }

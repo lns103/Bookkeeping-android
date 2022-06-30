@@ -298,6 +298,14 @@ public class MainActivity extends BaseActivity {
                 statisticsFragment = frag;
             }
         });
+
+        ItemListFragment.setRefreshListListener(new ItemListFragment.RefreshListListener(){
+            @Override
+            public void onBack() {
+                filterFragment.refreshList();
+                statisticsFragment.fresh();
+            }
+        });
     }
 
     private void setOnBackCloudSyncListener(){
